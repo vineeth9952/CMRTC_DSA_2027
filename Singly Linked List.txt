@@ -50,7 +50,12 @@ void Insert_At_Position(int data, int pos)
     struct Node *newnode = Create_Node(data);
     if(Head == NULL)
     {
-        printf("\nList is Empty");
+        printf("List is Empty");
+    }
+    else if (pos==1)
+    {
+        newnode->next = Head ;
+        Head = newnode;
     }
     else
     {
@@ -68,13 +73,13 @@ void Delete_At_End()
 {
     if(Head==NULL)
     {
-        printf("\nList is Empty");
+        printf("List is Empty");
     }
     else if(Head->next == NULL)
     {
         struct Node *del = Head ;
         Head = NULL;
-        printf("\n%d is Deleted from End of List",del->data);
+        printf("%d is Deleted from End of List",del->data);
         free(del);
     }
     else
@@ -86,7 +91,7 @@ void Delete_At_End()
         }
         struct Node *del = temp->next ;
         temp->next = NULL;
-        printf("\n%d is Deleted from End of List",del->data);
+        printf("%d is Deleted from End of List",del->data);
         free(del);
     }
 }
@@ -94,20 +99,20 @@ void Delete_At_Begin()
 {
     if(Head==NULL)
     {
-        printf("\nList is Empty");
+        printf("List is Empty");
     }
     else if(Head->next == NULL)
     {
         struct Node *del = Head ;
         Head = NULL;
-        printf("\n%d is Deleted from End of List",del->data);
+        printf("%d is Deleted from Begining of List",del->data);
         free(del);
     }
     else
     {
        struct Node *del = Head ;
        Head = Head->next ;
-       printf("\n%d is Deleted from Begining of List",del->data);
+       printf("%d is Deleted from Begining of List",del->data);
        free(del);
     }
 }
@@ -116,13 +121,13 @@ void Delete_At_Position(int pos)
     int pos2 = pos;
     if (Head==NULL)
     {
-        printf("\nList is Empty");
+        printf("List is Empty");
     }
     else if(pos==1)
     {
         struct Node *del = Head ;
         Head = Head->next;
-        printf("\n%d is Deleted from End of List",del->data);
+        printf("%d is Deleted from %d position of List",del->data,pos2);
         free(del);
     }
     else
@@ -135,7 +140,7 @@ void Delete_At_Position(int pos)
         }
         struct Node *del = temp->next ;
         temp->next = temp->next->next ;
-        printf("\n%d is Deleted from %dth Position of List",del->data,pos2);
+        printf("%d is Deleted from %dth Position of List",del->data,pos2);
         free(del);
     }
 }
@@ -151,7 +156,7 @@ void Display()
 }
 int main()
 {
-    printf("------------WELCOME------------");
+    printf("-----------------WELCOME-----------------");
     printf("\nEnter 1 for Insertion At End :- ");
     printf("\nEnter 2 for Insertion At Begining :- ");
     printf("\nEnter 3 for Insertion At Position :- ");
@@ -169,26 +174,26 @@ int main()
         {
             case 1:
             {
-                printf("\nEnter the data to insert :- ");
+                printf("Enter the data to insert :- ");
                 scanf("%d",&data);
                 Insert_At_End(data);
-                printf("%d is Inserted at End",data);
+                printf("%d is Inserted at End of list",data);
                 break;
             }
             case 2:
             {
-                printf("\nEnter the data to insert :- ");
+                printf("Enter the data to insert :- ");
                 scanf("%d",&data);
                 Insert_At_Begin(data);
-                printf("%d is Inserted at Begining",data);
+                printf("%d is Inserted at Begining of list",data);
                 break;
             }
             case 3:
             {
-                printf("\nEnter the data & Position to insert :- ");
+                printf("Enter the data & Position to insert :- ");
                 scanf("%d%d",&data,&pos);
                 Insert_At_Position(data,pos);
-                printf("%d is Inserted at Position %d",data,pos);
+                printf("%d is Inserted at Position %d in the list ",data,pos);
                 break;
             }
             case 4:
@@ -203,7 +208,7 @@ int main()
             }
             case 6:
             {
-                printf("\nEnter the Position to Delete :- ");
+                printf("Enter the Position to Delete :- ");
                 scanf("%d",&pos);
                 Delete_At_Position(pos);
                 break;
@@ -215,13 +220,13 @@ int main()
             }
             default:
             {
-                printf("\nEnter Valid Input");
+                printf("Enter Valid Input");
                 break;
             }
         }
         printf("\nEnter the desired input :- ");
         scanf("%d",&input);
     }
-    
+    printf("Program Terminated ..!");
     return 0;
 }
