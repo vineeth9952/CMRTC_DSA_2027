@@ -1,0 +1,117 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+struct Node *Stack = NULL;
+struct Node* Create_Node(int data)
+{
+    struct Node *newnode ;
+    newnode = (struct Node*)malloc(1*sizeof(struct Node));
+    newnode->data = data;
+    newnode->next = NULL;
+    
+    return newnode;
+}
+void Push(int data)
+{
+    struct Node *newnode = Create_Node(data);
+    if(Stack==NULL)
+    {
+        Stack = newnode;
+    }
+    else
+    {
+        newnode->next = Stack;
+        Stack = newnode;
+    }
+    printf("%d has been Pushed into Stack.",Stack->data);
+}
+void Pop()
+{
+    if(Stack==NULL)
+    {
+        printf("Stack Underflow");
+    }
+    else
+    {
+        printf("%d has been Popped from the Stack",Stack->data);
+        Stack = Stack->next;
+    }
+}
+void Peek()
+{
+    if(Stack==NULL)
+    {
+        printf("Stack is Empty");
+    }
+    else
+    {
+        printf("\nThe Top element is %d ",Stack->data);
+    }
+}
+void Display()
+{
+    printf("\nStack :- ");
+    struct Node *temp=Stack;
+    while(temp!=NULL)
+    {
+        printf("%d->",temp->data);
+        temp = temp->next;
+    }
+}
+int main()
+{
+    printf("-----------------WELCOME---------------------");
+    printf("\nEnter 1 to Push an Element into Stack ");
+    printf("\nEnter 2 to Pop an Element from Stack");
+    printf("\nEnter 3 to Peek into Stack");
+    printf("\nEnter 4 to Display the Stack");
+    printf("\nEnter -1 to Exit");
+    
+    int input,data;
+    printf("\nEnter your Choice :- ");
+    scanf("%d",&input);
+    
+    while(input!=-1)
+    {
+        switch(input)
+        {
+            case 1:
+            {
+                printf("Enter an Element to Push into Stack :- ");
+                scanf("%d",&data);
+                Push(data);
+                break;
+            }
+            case 2:
+            {
+                Pop();
+                break;
+            }
+            case 3:
+            {
+                Peek();
+                break;
+            }
+            case 4:
+            {
+                Display();
+                break;
+            }
+            default:
+            {
+                printf("Enter Valid Input");
+            }
+        }
+        printf("\nEnter your Choice :- ");
+        scanf("%d",&input);
+    }
+    printf("Program Terminated ..!");
+    return 0;
+}
+
+
+
