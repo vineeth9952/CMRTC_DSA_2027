@@ -187,7 +187,7 @@ int main()
             {
                 printf("Enter the data:- ");
                 scanf("%d",&data);
-                Insertion_At_End(data);
+                Insert_At_End(data);
                 printf("%d is Inserted at End",data);
                 break;
             }
@@ -195,7 +195,7 @@ int main()
             {
                 printf("Enter the data:- ");
                 scanf("%d",&data);
-                Insertion_At_Beg(data);
+                Insert_At_Begin(data);
                 printf("%d is Inserted at Begining",data);
                 break;
             }
@@ -203,19 +203,19 @@ int main()
             {
                 printf("Enter the data & Position:- ");
                 scanf("%d%d",&data,&pos);
-                Insertion_At_Pos(data,pos);
+                Insert_At_Position(data,pos);
                 printf("%d is Inserted at Position %d",data,pos);
                 break;
             }
             case 4:
             {
-                Deletion_At_End();
+                Delete_At_End();
                 printf("Value Deleted at End");
                 break;
             }
             case 5:
             {
-                Deletion_At_Beg();
+                Delete_At_Begin();
                 printf("Value Deleted at Begining");
                 break;
             }
@@ -223,7 +223,7 @@ int main()
             {
                 printf("Enter Position to delete:- ");
                 scanf("%d",&pos);
-                Deletion_At_Pos(pos);
+                Delete_At_Position(pos);
                 printf("Value Deleted at Position %d",pos);
                 break;
             }
